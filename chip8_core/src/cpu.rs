@@ -315,7 +315,7 @@ impl Emu {
             (0xF, _, 0x0, 0xA) => {
                 let mut pressed = false;
                 for (i, key) in self.keypad.keys.iter().enumerate() {
-                    if *key == true {
+                    if *key {
                         self.v_reg[x] = i as u8;
                         pressed = true;
                         break;
@@ -365,5 +365,11 @@ impl Emu {
             }
             (_, _, _, _) => unimplemented!("Unimplemented opcode: {}", op),
         }
+    }
+}
+
+impl Default for Emu {
+    fn default() -> Self {
+        Self::new()
     }
 }
