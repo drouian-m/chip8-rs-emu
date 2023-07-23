@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "chip8_core",
+    "desktop"
+]
+
